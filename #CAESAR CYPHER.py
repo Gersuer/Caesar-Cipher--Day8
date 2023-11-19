@@ -1,0 +1,54 @@
+#CAESAR CYPHER
+alphabet = [
+  'a', 'b', 'c', 'd', 'e', 'f',
+  'g', 'h', 'i', 'j', 'k', 'l',
+  'm', 'n', 'o', 'p', 'q', 'r',
+  's', 't', 'u', 'v', 'w', 'x',
+  'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f',
+  'g', 'h', 'i', 'j', 'k', 'l',
+  'm', 'n', 'o', 'p', 'q', 'r',
+  's', 't', 'u', 'v', 'w', 'x',
+  'y', 'z'
+]
+index = []
+
+def encrypt(message, shift):    
+  caesar_message = ''
+  for letter in message:
+   position = alphabet.index(letter)
+   new_position = position + shift
+   new_letter = alphabet[new_position]
+   caesar_message +=new_letter
+  print(f'A mensagem a ser decifrada será: {caesar_message}')
+
+def decode(message,shift):
+  decipher_message = ''
+  for letter in message:
+    positon = alphabet.index(letter)
+    new_position = positon - shift
+    new_letter = alphabet[new_position]
+    decipher_message += new_letter
+  print(f"A tradução da sua mensagem é: {decipher_message}")  
+
+while True:
+  direction = input("What you want to do? Encode or Decode:\n").lower()
+  message = input("What is your message?\n").lower()
+  shift = int(input("Type the shift number: "))
+
+  if direction != 'encode' and direction != 'decode' or shift == '' or message == '':
+    print('Type encode or decode and type how many shifts and your message')
+  if direction == 'encode':
+    encrypt(message, shift)
+  if direction == 'decode':
+    decode(message, shift)    
+  while True:
+    get_out = input('Do you want to exit? Y/N:\n').lower()
+    if get_out != 'y' and get_out != 'n':
+      print("Type Y or N")
+    if get_out == 'y' or 'n':
+      break
+  if get_out == 'y':
+    print("Thank you for used our app")
+    break
+
+  
