@@ -10,7 +10,6 @@ alphabet = [
   's', 't', 'u', 'v', 'w', 'x',
   'y', 'z'
 ]
-index = []
 
 def encrypt(message, shift):    
   caesar_message = ''
